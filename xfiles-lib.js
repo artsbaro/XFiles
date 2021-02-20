@@ -14,7 +14,6 @@ function XFiles() {
         a.click();
     }
 
-    
     this.FileToByteArray = function (file) {
         return new Promise((resolve, reject) => {
             try {
