@@ -14,7 +14,6 @@ $(function(){
     })
 })
 
-
 function Convert(){
     fileToByteArray(arquivoEPI).then((request) => {
         let objFile = {
