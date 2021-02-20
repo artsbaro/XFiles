@@ -1,12 +1,16 @@
 var fileUpload;
-
-$(function(){
+var xFile = new XFiles();
+$(function () {
     fileUpload = $('#fileupload');
     
     fileUpload.on('change', function () {
-        $('#lblFileName').text($(this).text != ''
+        $('#lblFileName').text(fileUpload[0].files[0]
             ? fileUpload[0].files[0].name
             : 'Choose file.');
+    });
+
+    $('#btnFile').click(function () {
+        fileUpload.click();
     });
 
     $('#btnConvert').click(function(){
@@ -15,9 +19,11 @@ $(function(){
 })
 
 function Convert(){
-    fileToByteArray(arquivoEPI).then((request) => {
+    let file = fileUpload[0].files[0];
+
+    xFile.FileToByteArray(file).then((request) => {
         let objFile = {
-            ByteArray: request.FileToByteArray,
+            ByteArray: request.FileByteArray,
             Name: request.FileName,
             ContextType: request.ContextType
         }

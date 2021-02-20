@@ -20,9 +20,9 @@ function XFiles() {
                 if (file != undefined) {
                     let reader = new FileReader();
                     let Request = {
-                        FileByteArray = [],
-                        FileName = file.name,
-                        ContextType = file.type
+                        FileByteArray: [],
+                        FileName: file.name,
+                        ContextType: file.type
                     };
                     reader.readAsArrayBuffer(file);
                     reader.onloadend = (evt) => {
